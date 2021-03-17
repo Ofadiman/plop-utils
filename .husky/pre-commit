@@ -1,0 +1,14 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Linting staged files"
+yarn lint-staged
+
+echo "Building project"
+yarn build
+
+echo "Running eslint"
+yarn eslint-check
+
+echo "Running tests"
+yarn test-ci

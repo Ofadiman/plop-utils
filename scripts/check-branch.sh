@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# This script throws an error when we try to execute "yarn version" while not being on "main" branch.
+
 current_branch="$(git rev-parse --abbrev-ref HEAD)"
 
 if [[ "$current_branch" != "main" ]]; then
