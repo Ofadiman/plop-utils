@@ -1,0 +1,19 @@
+{
+  "dev": true,
+  "peer": true,
+  "prod": true,
+  "sortFirst": [
+    "name",
+    "version",
+    "author",
+    "description",
+    "main",
+    "typings",
+    "license",
+    "scripts",
+    "dependencies",
+    "devDependencies",
+    "peerDependencies"
+  ],
+  "versionGroups": []
+}
