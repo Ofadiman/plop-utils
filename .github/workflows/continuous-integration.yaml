@@ -6,8 +6,8 @@ on:
       - '*'
     tags-ignore:
       - '*'
-    paths-ignore:
-      - '*.md'
+    paths:
+      - 'src/**'
 
 env:
   NODE_VERSION: 14.16.0
