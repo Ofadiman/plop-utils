@@ -1,10 +1,10 @@
-import { createPlopVariable } from '../createPlopVariable/createPlopVariable'
+import { getOneConstant } from '../getOneConstant/getOneConstant'
 
-export const testCli = {
+export const testBase = {
   name: 'name'
 } as const
 
-export const createPlopVariablesDefaultResult = {
+export const defaultResult = {
   name: {
     camelCase: '{{ camelCase name }}',
     constantCase: '{{ constantCase name }}',
@@ -22,11 +22,11 @@ export const createPlopVariablesDefaultResult = {
   }
 }
 
-export const createPlopVariablesOptions = {
-  name: { superCase: createPlopVariable('test', 'pascalCase', 'sentenceCase') }
+export const additionalConstants = {
+  name: { superCase: getOneConstant('test', 'pascalCase', 'sentenceCase') }
 }
 
-export const createPlopVariablesCustomVariablesResult = {
+export const additionalConstantsResult = {
   name: {
     camelCase: '{{ camelCase name }}',
     constantCase: '{{ constantCase name }}',

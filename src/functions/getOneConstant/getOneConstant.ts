@@ -1,6 +1,6 @@
 import { Helpers } from '../../types/Helpers.type'
 
-export const createPlopVariable = (variable: string, ...helpers: Helpers[]): string => {
+export const getOneConstant = (variable: string, ...helpers: Helpers[]): string => {
   if (helpers.length === 0) {
     return `{{ ${variable} }}`
   }
