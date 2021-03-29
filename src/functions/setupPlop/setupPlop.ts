@@ -15,7 +15,7 @@ export const setupPlop = (plop: NodePlopAPI, options?: Options): void => {
   }
 
   if (finalOptions.shouldSetupGeneratorTemplate) {
-    plop.setGenerator(plopGeneratorConstants.generator.name, plopGeneratorConfig)
+    plop.setGenerator(plopGeneratorConstants.name, plopGeneratorConfig)
   }
 
   plop.setHelper('singular', singular)

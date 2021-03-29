@@ -18,7 +18,7 @@ describe('setupPlop function', () => {
     expect(setWelcomeMessageMock).toHaveBeenCalledTimes(1)
 
     expect(setGeneratorMock).toHaveBeenCalledTimes(1)
-    expect(setGeneratorMock).toHaveBeenCalledWith(plopGeneratorConstants.generator.name, plopGeneratorConfig)
+    expect(setGeneratorMock).toHaveBeenCalledWith(plopGeneratorConstants.name, plopGeneratorConfig)
 
     expect(setHelperMock).toHaveBeenCalledTimes(2)
     expect(setHelperMock).toHaveBeenCalledWith('singular', singular)

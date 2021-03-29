@@ -31,11 +31,12 @@ export const plopGeneratorActions: ActionType[] = [
       const name = answers[plopGeneratorConstants.variables.base.name]
       const camelCaseName = camelCase(name)
       const plopExportRegex = /\nexport default function.*/u
-      const generatorConstantsImport = `import { ${camelCaseName}Const } from './codegen/${name}/${name}.constants'`
-      const generatorSetup = `plop.setGenerator(${camelCaseName}Const.generator.name, ${camelCaseName}Const.generator.config)`
+      const generatorConstantsImport = `import { ${camelCaseName}Constants } from './codegen/${name}/${name}.constants'`
+      const generatorConfigImport = `import { ${camelCaseName}Config } from './codegen/${name}/${name}.config'`
+      const generatorSetup = `plop.setGenerator(${camelCaseName}Constants.name, ${camelCaseName}Config)`
 
       return fileContent.replace(plopExportRegex, (matched: string): string => {
-        return `${generatorConstantsImport}\n${matched}\n  ${generatorSetup}`
+        return `${generatorConfigImport}\n${generatorConstantsImport}\n${matched}\n  ${generatorSetup}`
       })
     },
     type: 'modify'
