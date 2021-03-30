@@ -1,7 +1,7 @@
-import chalk from 'chalk'
 import { NodePlopAPI } from 'plop'
 import { plural, singular } from 'pluralize'
 
+import { CODEGEN_SUCCESS } from '../../constants/prefixes'
 import { plopGeneratorConfig } from '../../generators/plop-generator/plop-generator.config'
 import { plopGeneratorConstants } from '../../generators/plop-generator/plop-generator.constants'
 import { defaultOptions } from './setupPlop.constants'
@@ -11,7 +11,7 @@ export const setupPlop = (plop: NodePlopAPI, options?: Options): void => {
   const finalOptions = { ...defaultOptions, ...options }
 
   if (finalOptions.shouldDisplayWelcomeMessage) {
-    plop.setWelcomeMessage(`${chalk.green('[Codegen]')} What do you want to generate?`)
+    plop.setWelcomeMessage(`${CODEGEN_SUCCESS} What do you want to generate?`)
   }
 
   if (finalOptions.shouldSetupGeneratorTemplate) {
