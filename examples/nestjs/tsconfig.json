@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ESNext",
+    "sourceMap": true,
+    "outDir": "dist",
+    "allowJs": true,
+    "baseUrl": "./",
+    "incremental": true,
+    "paths": {
+      "@ofadiman/plop-utils": ["../../dist"]
+    }
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "paths": {
+        "@ofadiman/plop-utils": ["../../dist"]
+      },
+      "module": "CommonJS"
+    }
+  }
+}
