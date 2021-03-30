@@ -1,10 +1,10 @@
-import { composeValidators, GeneratorConfig } from '@ofadiman/plop-utils'
+import { composeValidators, GeneratorConfig, runEslint } from '@ofadiman/plop-utils'
 
 import { nestjsxCrudModuleActions } from './nestjsx-crud-module.actions'
 import { nestjsxCrudModuleConstants } from './nestjsx-crud-module.constants'
 
 export const nestjsxCrudModuleConfig: GeneratorConfig = {
-  actions: nestjsxCrudModuleActions,
+  actions: [...nestjsxCrudModuleActions, runEslint('src/app.module.ts')],
   description: 'Generate a/an nestjsx crud module.',
   prompts: [
     {
