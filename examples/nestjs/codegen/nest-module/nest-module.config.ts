@@ -1,10 +1,10 @@
-import { composeValidators, GeneratorConfig } from '@ofadiman/plop-utils'
+import { composeValidators, GeneratorConfig, runEslint } from '@ofadiman/plop-utils'
 
 import { nestModuleActions } from './nest-module.actions'
 import { nestModuleConstants } from './nest-module.constants'
 
 export const nestModuleConfig: GeneratorConfig = {
-  actions: nestModuleActions,
+  actions: [...nestModuleActions, runEslint('src/app.module.ts')],
   description: 'Generate a/an nest module.',
   prompts: [
     {
