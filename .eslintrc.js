@@ -1,5 +1,6 @@
 module.exports = {
   extends: ['@ofadiman/eslint-config-base'],
+  ignorePatterns: ["examples/library/src/**/*.ts"],
   overrides: [
     {
       files: ['src/generators/**', 'examples/**/codegen/**'],

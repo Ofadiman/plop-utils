@@ -1,0 +1,21 @@
+{
+  "name": "nestjs-example",
+  "version": "0.0.1",
+  "description": "Example usage of @ofadiman/plop-utils library in custom library.",
+  "author": {
+    "email": "ofadiman@gmail.com",
+    "name": "Szymon Jaworski",
+    "url": "https://github.com/Ofadiman"
+  },
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.6",
+    "jest": "^26.6.3",
+    "plop": "^2.7.4",
+    "ts-jest": "^26.5.4",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  }
+}
