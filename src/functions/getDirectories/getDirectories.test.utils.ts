@@ -6,6 +6,9 @@ export const readdirSyncSpy = jest.spyOn(fs, 'readdirSync').mockName('readdirSyn
 export const cwd = '/home/user'
 export const srcDirName = 'src'
 export const additionalDirectories = ['pages', 'containers']
+export const additionalDirectoriesWithDuplicates = ['pages', 'pages', 'pages', 'pages']
+
+export const cannotReadDirectoryError = new Error('cannotReadDirectoryError')
 
 export const componentsDirectory = new Dirent()
 componentsDirectory.name = 'components'
