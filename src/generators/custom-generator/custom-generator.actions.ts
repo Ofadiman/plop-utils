@@ -18,6 +18,11 @@ export const getCustomGeneratorActions = (): GetCustomGeneratorActionsReturn => 
       template: require('./templates/[name].constants.template').template,
       type: 'add'
     },
+    main: {
+      path: `codegen/${handlebars.name.kebabCase}/templates/[name].template.ts`,
+      template: require('./templates/[name].template').template,
+      type: 'add'
+    },
     modifyPlopfile: {
       path: 'plopfile.ts',
       transform: (fileContent: string, answers: Answers): string => {
@@ -25,8 +30,8 @@ export const getCustomGeneratorActions = (): GetCustomGeneratorActionsReturn => 
         const pascalCaseName = pascalCase(name)
         const lineEndRegex = /^\}/mu
         const exportPlopRegex = /export/u
-        const importSetupFunction = `import { setup${pascalCaseName} } from './codegen/${name}/${name}.setup'`
-        const setupGenerator = `setup${pascalCaseName}(plop)`
+        const importSetupFunction = `import { setup${pascalCaseName}Codegen } from './codegen/${name}/${name}.setup'`
+        const setupGenerator = `setup${pascalCaseName}Codegen(plop)`
 
         const fileContentWithNewGenerator = fileContent.replace(lineEndRegex, (matched: string): string => {
           return `  ${setupGenerator}\n${matched}`
@@ -46,11 +51,6 @@ export const getCustomGeneratorActions = (): GetCustomGeneratorActionsReturn => 
     setup: {
       path: `codegen/${handlebars.name.kebabCase}/${handlebars.name.kebabCase}.setup.ts`,
       template: require('./templates/[name].setup.template').template,
-      type: 'add'
-    },
-    template: {
-      path: `codegen/${handlebars.name.kebabCase}/templates/[name].template.ts`,
-      template: require('./templates/[name].template').template,
       type: 'add'
     },
     types: {

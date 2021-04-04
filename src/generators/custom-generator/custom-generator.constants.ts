@@ -19,7 +19,7 @@ export const customGeneratorConstants = {
   handlebars
 }
 
-export const config: GeneratorConfig = {
+export const customGeneratorConfig: GeneratorConfig = {
   actions: [] as ActionType[],
   description: 'Generate a custom generator.',
   prompts: [] as PromptQuestion[]

@@ -1,8 +1,8 @@
-import { customGeneratorConstants } from '../custom-generator.constants'
+import { generatorConstants } from '../generator.constants'
 
-const { handlebars } = customGeneratorConstants
+const { handlebars } = generatorConstants
 
-export const template = `import { ${handlebars.name.camelCase}Constants } from './${handlebars.name.camelCase}.constants'
+export const template = `import { ${handlebars.name.camelCase}Constants } from './${handlebars.name.kebabCase}.constants'
 import { Get${handlebars.name.pascalCase}ActionsReturn } from './${handlebars.name.kebabCase}.types'
 
 const { handlebars } = ${handlebars.name.camelCase}Constants

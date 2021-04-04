@@ -1,13 +1,16 @@
 import { NodePlopAPI } from 'plop'
 
 import { getReactComponentTypeScriptStyledComponentsActions } from './react-component-typescript-styled-components.actions'
-import { config, defaultOptions } from './react-component-typescript-styled-components.constants'
+import {
+  defaultOptions,
+  reactComponentTypescriptStyledComponentsConfig
+} from './react-component-typescript-styled-components.constants'
 import { getReactComponentTypeScriptStyledComponentsPrompts } from './react-component-typescript-styled-components.prompts'
-import { SetupReactComponentTypeScriptStyledComponentsOptions } from './react-component-typescript-styled-components.types'
+import { SetupReactComponentTypeScriptStyledComponentsCodegenOptions } from './react-component-typescript-styled-components.types'
 
-export const setupReactComponentTypeScriptStyledComponents = (
+export const setupReactComponentTypeScriptStyledComponentsCodegen = (
   plop: NodePlopAPI,
-  options?: SetupReactComponentTypeScriptStyledComponentsOptions | boolean
+  options?: SetupReactComponentTypeScriptStyledComponentsCodegenOptions | boolean
 ): void => {
   const { componentsDirectory, renderFunctionLocation, renderFunctionName, hasTests, hasStories } = {
     ...defaultOptions,
@@ -21,18 +24,16 @@ export const setupReactComponentTypeScriptStyledComponents = (
     renderFunctionName
   })
 
-  config.prompts.push(prompts.name)
-  config.actions.push(actions.component)
-  config.actions.push(actions.styles)
-  config.actions.push(actions.types)
+  reactComponentTypescriptStyledComponentsConfig.prompts.push(prompts.name)
+  reactComponentTypescriptStyledComponentsConfig.actions.push(actions.component, actions.styles, actions.types)
 
   if (hasTests) {
-    config.actions.push(actions.test)
+    reactComponentTypescriptStyledComponentsConfig.actions.push(actions.test)
   }
 
   if (hasStories) {
-    config.actions.push(actions.stories)
+    reactComponentTypescriptStyledComponentsConfig.actions.push(actions.stories)
   }
 
-  plop.setGenerator('react-component-typescript-styled-components', config)
+  plop.setGenerator('react-component-typescript-styled-components', reactComponentTypescriptStyledComponentsConfig)
 }

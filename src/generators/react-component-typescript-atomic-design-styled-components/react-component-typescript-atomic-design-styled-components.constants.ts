@@ -1,7 +1,7 @@
 import { ActionType, PromptQuestion } from 'node-plop'
 
 import { getManyConstants } from '../../functions/getManyConstants/getManyConstants'
-import { SetupReactComponentTypeScriptAtomicDesignStyledComponentsOptions } from './react-component-typescript-atomic-design-styled-components.types'
+import { SetupReactComponentTypeScriptAtomicDesignStyledComponentsCodegenOptions } from './react-component-typescript-atomic-design-styled-components.types'
 
 const base = {
   name: 'name',
@@ -15,7 +15,7 @@ export const reactComponentTypescriptAtomicDesignStyledComponentsConstants = {
   handlebars
 }
 
-export const defaultOptions: Required<SetupReactComponentTypeScriptAtomicDesignStyledComponentsOptions> = {
+export const defaultOptions: Required<SetupReactComponentTypeScriptAtomicDesignStyledComponentsCodegenOptions> = {
   componentsDirectory: 'src/components',
   hasStories: true,
   hasTests: true,
@@ -23,7 +23,7 @@ export const defaultOptions: Required<SetupReactComponentTypeScriptAtomicDesignS
   renderFunctionName: 'renderComponent'
 }
 
-export const config = {
+export const reactComponentTypescriptAtomicDesignStyledComponentsConfig = {
   actions: [] as ActionType[],
   description: 'Generate a React component with TypeScript and styled components and atomic design project structure.',
   prompts: [] as PromptQuestion[]

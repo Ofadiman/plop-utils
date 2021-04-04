@@ -14,11 +14,11 @@
     "build": "rimraf dist && tsc -b tsconfig.build.json",
     "eslint-check": "eslint src/**/*.{ts,tsx}",
     "eslint-fix": "eslint src/**/*.{ts,tsx} --fix",
-    "postversion": "git push --follow-tags",
-    "prettier": "prettier --write .",
     "postinstall": "is-ci || husky install",
-    "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
+    "postversion": "git push --follow-tags",
+    "prepublishOnly": "pinst --disable",
+    "prettier": "prettier --write .",
     "preversion": "scripts/check-branch.sh",
     "syncpack-format": "syncpack format",
     "test": "jest",
@@ -30,7 +30,8 @@
     "lodash": "^4.17.21",
     "ora": "^5.4.0",
     "plop": "^2.7.4",
-    "pluralize": "^8.0.0"
+    "pluralize": "^8.0.0",
+    "ts-node": "^9.1.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
@@ -75,7 +76,8 @@
   },
   "files": [
     "LICENSE",
-    "dist"
+    "dist",
+    "readme.md"
   ],
   "keywords": [
     "javascript",

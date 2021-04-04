@@ -1,7 +1,7 @@
 import { ActionType, PromptQuestion } from 'node-plop'
 
 import { getManyConstants } from '../../functions/getManyConstants/getManyConstants'
-import { SetupReactComponentTypeScriptStyledComponentsOptions } from './react-component-typescript-styled-components.types'
+import { SetupReactComponentTypeScriptStyledComponentsCodegenOptions } from './react-component-typescript-styled-components.types'
 
 const base = {
   name: 'name',
@@ -15,7 +15,7 @@ export const reactComponentTypescriptStyledComponentsConstants = {
   handlebars
 }
 
-export const defaultOptions: Required<SetupReactComponentTypeScriptStyledComponentsOptions> = {
+export const defaultOptions: Required<SetupReactComponentTypeScriptStyledComponentsCodegenOptions> = {
   componentsDirectory: 'src/components',
   hasStories: true,
   hasTests: true,
@@ -23,7 +23,7 @@ export const defaultOptions: Required<SetupReactComponentTypeScriptStyledCompone
   renderFunctionName: 'renderComponent'
 }
 
-export const config = {
+export const reactComponentTypescriptStyledComponentsConfig = {
   actions: [] as ActionType[],
   description: 'Generate a React component with TypeScript and styled components.',
   prompts: [] as PromptQuestion[]

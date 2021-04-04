@@ -16,7 +16,7 @@ export const ${handlebars.name.camelCase}Constants = {
   handlebars
 }
 
-export const config: GeneratorConfig = {
+export const ${handlebars.name.camelCase}Config: GeneratorConfig = {
   actions: [] as ActionType[],
   description: '${handlebars.description.sentenceCase}',
   prompts: [] as PromptQuestion[]

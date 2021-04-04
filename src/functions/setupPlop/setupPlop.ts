@@ -3,9 +3,9 @@ import { NodePlopAPI } from 'plop'
 import { plural, singular } from 'pluralize'
 
 import { CODEGEN_SUCCESS } from '../../constants/prefixes'
-import { setupCustomGenerator } from '../../generators/custom-generator/custom-generator.setup'
-import { setupReactComponentTypeScriptAtomicDesignStyledComponents } from '../../generators/react-component-typescript-atomic-design-styled-components/react-component-typescript-atomic-design-styled-components.setup'
-import { setupReactComponentTypeScriptStyledComponents } from '../../generators/react-component-typescript-styled-components/react-component-typescript-styled-components.setup'
+import { setupCustomGeneratorCodegen } from '../../generators/custom-generator/custom-generator.setup'
+import { setupReactComponentTypeScriptAtomicDesignStyledComponentsCodegen } from '../../generators/react-component-typescript-atomic-design-styled-components/react-component-typescript-atomic-design-styled-components.setup'
+import { setupReactComponentTypeScriptStyledComponentsCodegen } from '../../generators/react-component-typescript-styled-components/react-component-typescript-styled-components.setup'
 import { SetupPlopOptions } from './setupPlop.types'
 
 export const setupPlop = (plop: NodePlopAPI, options: SetupPlopOptions = {}): void => {
@@ -14,14 +14,14 @@ export const setupPlop = (plop: NodePlopAPI, options: SetupPlopOptions = {}): vo
   plop.setHelper('plural', plural)
 
   if (options.customGenerator) {
-    setupCustomGenerator(plop)
+    setupCustomGeneratorCodegen(plop)
   }
 
   if (options.reactComponentTypescriptStyledComponents) {
-    setupReactComponentTypeScriptStyledComponents(plop, options.reactComponentTypescriptStyledComponents)
+    setupReactComponentTypeScriptStyledComponentsCodegen(plop, options.reactComponentTypescriptStyledComponents)
   }
   if (options.reactComponentTypescriptAtomicDesignStyledComponents) {
-    setupReactComponentTypeScriptAtomicDesignStyledComponents(
+    setupReactComponentTypeScriptAtomicDesignStyledComponentsCodegen(
       plop,
       options.reactComponentTypescriptAtomicDesignStyledComponents
     )
