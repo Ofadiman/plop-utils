@@ -3,7 +3,7 @@ import { NodePlopAPI } from 'plop'
 import { plural, singular } from 'pluralize'
 
 import { CODEGEN_SUCCESS } from '../../constants/prefixes'
-import { setupCustomGenerator } from '../../generators/plop-generator/plop-generator.setup'
+import { setupCustomGenerator } from '../../generators/custom-generator/custom-generator.setup'
 import { setupReactComponentTypeScriptAtomicDesignStyledComponents } from '../../generators/react-component-typescript-atomic-design-styled-components/react-component-typescript-atomic-design-styled-components.setup'
 import { setupReactComponentTypeScriptStyledComponents } from '../../generators/react-component-typescript-styled-components/react-component-typescript-styled-components.setup'
 import { SetupPlopOptions } from './setupPlop.types'
