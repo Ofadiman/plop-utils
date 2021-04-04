@@ -1,14 +1,16 @@
 import { NodePlopAPI } from 'plop'
 
-import { config } from '../react-component-typescript-styled-components/react-component-typescript-styled-components.constants'
 import { getReactComponentTypeScriptAtomicDesignStyledComponentsActions } from './react-component-typescript-atomic-design-styled-components.actions'
-import { defaultOptions } from './react-component-typescript-atomic-design-styled-components.constants'
+import {
+  defaultOptions,
+  reactComponentTypescriptAtomicDesignStyledComponentsConfig
+} from './react-component-typescript-atomic-design-styled-components.constants'
 import { getReactComponentTypeScriptAtomicDesignStyledComponentsPrompts } from './react-component-typescript-atomic-design-styled-components.prompts'
-import { SetupReactComponentTypeScriptAtomicDesignStyledComponentsOptions } from './react-component-typescript-atomic-design-styled-components.types'
+import { SetupReactComponentTypeScriptAtomicDesignStyledComponentsCodegenOptions } from './react-component-typescript-atomic-design-styled-components.types'
 
-export const setupReactComponentTypeScriptAtomicDesignStyledComponents = (
+export const setupReactComponentTypeScriptAtomicDesignStyledComponentsCodegen = (
   plop: NodePlopAPI,
-  options?: SetupReactComponentTypeScriptAtomicDesignStyledComponentsOptions | boolean
+  options?: SetupReactComponentTypeScriptAtomicDesignStyledComponentsCodegenOptions | boolean
 ): void => {
   const { componentsDirectory, renderFunctionLocation, renderFunctionName, hasTests, hasStories } = {
     ...defaultOptions,
@@ -22,16 +24,23 @@ export const setupReactComponentTypeScriptAtomicDesignStyledComponents = (
     renderFunctionName
   })
 
-  config.prompts.push(prompts.name, prompts.type)
-  config.actions.push(actions.component, actions.styles, actions.types)
+  reactComponentTypescriptAtomicDesignStyledComponentsConfig.prompts.push(prompts.name, prompts.type)
+  reactComponentTypescriptAtomicDesignStyledComponentsConfig.actions.push(
+    actions.component,
+    actions.styles,
+    actions.types
+  )
 
   if (hasTests) {
-    config.actions.push(actions.test)
+    reactComponentTypescriptAtomicDesignStyledComponentsConfig.actions.push(actions.test)
   }
 
   if (hasStories) {
-    config.actions.push(actions.stories)
+    reactComponentTypescriptAtomicDesignStyledComponentsConfig.actions.push(actions.stories)
   }
 
-  plop.setGenerator('react-component-typescript-atomic-design-styled-components', config)
+  plop.setGenerator(
+    'react-component-typescript-atomic-design-styled-components',
+    reactComponentTypescriptAtomicDesignStyledComponentsConfig
+  )
 }

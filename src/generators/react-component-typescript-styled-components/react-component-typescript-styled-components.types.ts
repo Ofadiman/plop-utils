@@ -1,7 +1,7 @@
 import { PromptQuestion } from 'node-plop'
 import { ActionType } from 'plop'
 
-export type SetupReactComponentTypeScriptStyledComponentsOptions = {
+export type SetupReactComponentTypeScriptStyledComponentsCodegenOptions = {
   componentsDirectory?: string
   hasStories?: boolean
   hasTests?: boolean
