@@ -1,6 +1,6 @@
 import { Validator } from '../../types/Validator.type'
-import { requireInput } from '../requireInput/requireInput'
-import { requireKebabCase } from '../requireKebabCase/requireKebabCase'
+import { requireInput } from '../../validators/requireInput/requireInput'
+import { requireKebabCase } from '../../validators/requireKebabCase/requireKebabCase'
 
 const validateInput = (validators: Validator[], value: string): boolean | string => {
   const errors = validators.reduce<string[]>((accumulator, validator) => {
