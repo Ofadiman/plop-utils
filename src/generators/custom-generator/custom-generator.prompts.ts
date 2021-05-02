@@ -1,5 +1,5 @@
 import { composeValidators } from '../../functions/composeValidators/composeValidators'
-import { requireInput } from '../../functions/requireInput/requireInput'
+import { requireInput } from '../../validators/requireInput/requireInput'
 import { customGeneratorConstants } from './custom-generator.constants'
 import { GetCustomGeneratorPromptsReturn } from './custom-generator.types'
 

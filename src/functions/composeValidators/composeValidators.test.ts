@@ -1,5 +1,5 @@
-import * as requireInputModule from '../requireInput/requireInput'
-import * as requiredKebabCaseModule from '../requireKebabCase/requireKebabCase'
+import * as requireInputModule from '../../validators/requireInput/requireInput'
+import * as requiredKebabCaseModule from '../../validators/requireKebabCase/requireKebabCase'
 import { composeValidators } from './composeValidators'
 import {
   firstErrorMessage,
