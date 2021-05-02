@@ -9,7 +9,7 @@ export const getManyConstants = <
 >(
   baseConstants: BaseConstants,
   additionalConstants?: AdditionalConstants
-): AdditionalConstants & PlopConstants<BaseConstants> => {
+): { base: BaseConstants; handlebars: AdditionalConstants & PlopConstants<BaseConstants> } => {
   const plopConstants = (Object.values(baseConstants) as BaseConstants[keyof BaseConstants][]).reduce(
     (accumulator, value) => {
       accumulator[value] = {
@@ -33,5 +33,5 @@ export const getManyConstants = <
     {} as PlopConstants<BaseConstants>
   )
 
-  return merge(plopConstants, additionalConstants)
+  return { base: baseConstants, handlebars: merge(plopConstants, additionalConstants) }
 }
