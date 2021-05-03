@@ -1,6 +1,6 @@
-import { customGeneratorConstants } from '../custom-generator.constants'
+import { generatorConstants } from '../generator.constants'
 
-const { handlebars } = customGeneratorConstants
+const { handlebars } = generatorConstants
 
 export const template = `import { GeneratorConfig, getManyConstants } from '@ofadiman/plop-utils'
 import { ActionType, PromptQuestion } from 'node-plop'
