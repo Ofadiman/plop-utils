@@ -13,6 +13,10 @@ export type GetContainerActionsReturn = {
   }
 }
 
+export type GetContainerActionsOptions = {
+  root: string
+}
+
 export type GetContainerPromptsReturn = {
   name: PromptQuestion
 }

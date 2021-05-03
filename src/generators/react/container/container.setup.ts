@@ -11,7 +11,7 @@ export const setupContainerCodegen = (options: SetupContainerCodegenOptions): vo
   }
 
   const prompts = getContainerPrompts()
-  const actions = getContainerActions()
+  const actions = getContainerActions({ root: options.root })
 
   const finalOptions =
     typeof options.containerOptions === 'object' ? merge(defaultOptions, options.containerOptions) : defaultOptions

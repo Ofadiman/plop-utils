@@ -9,7 +9,6 @@ export const defaultOptions: DeepRequired<SetupPlopOptions> = {
   react: {
     component: false,
     container: false,
-    page: false,
     root: 'src'
   }
 }
