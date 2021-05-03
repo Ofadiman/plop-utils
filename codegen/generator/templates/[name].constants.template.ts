@@ -16,7 +16,7 @@ export const ${handlebars.name.camelCase}Constants = getManyConstants(base)
 
 export const ${handlebars.name.camelCase}Config: GeneratorConfig = {
   actions: [] as ActionType[],
-  description: 'Generate a custom generator.',
+  description: 'Generate a ${handlebars.name.lowerSentenceCase}.',
   prompts: [] as PromptQuestion[]
 }
 `

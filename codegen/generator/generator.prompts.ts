@@ -1,5 +1,6 @@
 /* eslint-disable sort-keys-fix/sort-keys-fix,sort-keys */
 import { composeValidators } from '../../src'
+import { getDirectories } from '../../src/functions/getDirectories/getDirectories'
 import { generatorConstants } from './generator.constants'
 import { GetGeneratorPromptsReturn } from './generator.types'
 
@@ -17,7 +18,7 @@ export const getGeneratorPrompts = (): GetGeneratorPromptsReturn => {
       message: 'Where do you want to generate the code?',
       name: base.directory,
       type: 'list',
-      choices: ['react']
+      choices: getDirectories('src/generators')
     }
   }
 }

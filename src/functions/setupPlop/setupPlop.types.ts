@@ -1,7 +1,5 @@
 import { Component } from '../../generators/react/component/component.types'
-
-type Container = {}
-type Page = {}
+import { Container } from '../../generators/react/container/container.types'
 
 export type SetupPlopOptions = {
   plop?: {
@@ -10,7 +8,6 @@ export type SetupPlopOptions = {
   react?: {
     component?: Component | boolean
     container?: Container | boolean
-    page?: Page | boolean
     root?: string
   }
 }

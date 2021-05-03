@@ -1,11 +1,17 @@
 import { ActionType, PromptQuestion } from 'node-plop'
 
-import { GeneratorConfig, getManyConstants } from '../../src'
+import { GeneratorConfig, getManyConstants, getOneConstant } from '../../src'
 
-export const generatorConstants = getManyConstants({
+const base = {
   directory: 'directory',
   name: 'name'
-} as const)
+} as const
+
+export const generatorConstants = getManyConstants(base, {
+  name: {
+    lowerSentenceCase: getOneConstant(base.name, 'sentenceCase', 'lowerCase')
+  }
+})
 
 export const generatorConfig: GeneratorConfig = {
   actions: [] as ActionType[],

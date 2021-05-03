@@ -5,6 +5,7 @@ import { plural, singular } from 'pluralize'
 import { CODEGEN_SUCCESS } from '../../constants/prefixes'
 import { setupGeneratorCodegen } from '../../generators/plop/generator/generator.setup'
 import { setupComponentCodegen } from '../../generators/react/component/component.setup'
+import { setupContainerCodegen } from '../../generators/react/container/container.setup'
 import { defaultOptions } from './setupPlop.constants'
 import { SetupPlopOptions } from './setupPlop.types'
 
@@ -18,4 +19,5 @@ export const setupPlop = (plop: NodePlopAPI, options: SetupPlopOptions = {}): vo
   setupGeneratorCodegen({ generatorOptions: finalOptions.plop.generator, plop })
 
   setupComponentCodegen({ componentOptions: finalOptions.react.component, plop, root: finalOptions.react.root })
+  setupContainerCodegen({ containerOptions: finalOptions.react.container, plop, root: finalOptions.react.root })
 }
