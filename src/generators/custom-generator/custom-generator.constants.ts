@@ -10,14 +10,9 @@ const base = {
   name: 'name'
 } as const
 
-const handlebars = getManyConstants(base, {
+export const customGeneratorConstants = getManyConstants(base, {
   name: { lowerSentenceCase: getOneConstant(base.name, 'sentenceCase', 'lowerCase') }
 })
-
-export const customGeneratorConstants = {
-  base,
-  handlebars
-}
 
 export const customGeneratorConfig: GeneratorConfig = {
   actions: [] as ActionType[],

@@ -1,11 +1,11 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+import { merge } from 'lodash'
 import { NodePlopAPI } from 'plop'
 import { plural, singular } from 'pluralize'
 
 import { CODEGEN_SUCCESS } from '../../constants/prefixes'
 import { setupCustomGeneratorCodegen } from '../../generators/custom-generator/custom-generator.setup'
-import { setupReactComponentTypeScriptAtomicDesignStyledComponentsCodegen } from '../../generators/react-component-typescript-atomic-design-styled-components/react-component-typescript-atomic-design-styled-components.setup'
-import { setupReactComponentTypeScriptStyledComponentsCodegen } from '../../generators/react-component-typescript-styled-components/react-component-typescript-styled-components.setup'
+import { setupComponentCodegen } from '../../generators/react/component/component.setup'
+import { defaultOptions } from './setupPlop.constants'
 import { SetupPlopOptions } from './setupPlop.types'
 
 export const setupPlop = (plop: NodePlopAPI, options: SetupPlopOptions = {}): void => {
@@ -13,17 +13,9 @@ export const setupPlop = (plop: NodePlopAPI, options: SetupPlopOptions = {}): vo
   plop.setHelper('singular', singular)
   plop.setHelper('plural', plural)
 
-  if (options.customGenerator) {
-    setupCustomGeneratorCodegen(plop)
-  }
+  const finalOptions = merge(defaultOptions, options)
 
-  if (options.reactComponentTypescriptStyledComponents) {
-    setupReactComponentTypeScriptStyledComponentsCodegen(plop, options.reactComponentTypescriptStyledComponents)
-  }
-  if (options.reactComponentTypescriptAtomicDesignStyledComponents) {
-    setupReactComponentTypeScriptAtomicDesignStyledComponentsCodegen(
-      plop,
-      options.reactComponentTypescriptAtomicDesignStyledComponents
-    )
-  }
+  setupCustomGeneratorCodegen(plop, finalOptions.plop.generator)
+
+  setupComponentCodegen({ componentOptions: finalOptions.react.component, plop, root: finalOptions.react.root })
 }

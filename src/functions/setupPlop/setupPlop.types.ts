@@ -1,10 +1,16 @@
-import { SetupReactComponentTypeScriptAtomicDesignStyledComponentsCodegenOptions } from '../../generators/react-component-typescript-atomic-design-styled-components/react-component-typescript-atomic-design-styled-components.types'
-import { SetupReactComponentTypeScriptStyledComponentsCodegenOptions } from '../../generators/react-component-typescript-styled-components/react-component-typescript-styled-components.types'
+import { Component } from '../../generators/react/component/component.types'
+
+type Container = {}
+type Page = {}
 
 export type SetupPlopOptions = {
-  customGenerator?: boolean
-  reactComponentTypescriptAtomicDesignStyledComponents?:
-    | SetupReactComponentTypeScriptAtomicDesignStyledComponentsCodegenOptions
-    | boolean
-  reactComponentTypescriptStyledComponents?: SetupReactComponentTypeScriptStyledComponentsCodegenOptions | boolean
+  plop?: {
+    generator?: boolean
+  }
+  react?: {
+    component?: Component | boolean
+    container?: Container | boolean
+    page?: Page | boolean
+    root?: string
+  }
 }

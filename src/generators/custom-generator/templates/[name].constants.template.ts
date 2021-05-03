@@ -9,12 +9,7 @@ const base = {
   name: 'name'
 } as const
 
-const handlebars = getManyConstants(base)
-
-export const ${handlebars.name.camelCase}Constants = {
-  base,
-  handlebars
-}
+export const ${handlebars.name.camelCase}Constants = getManyConstants(base)
 
 export const ${handlebars.name.camelCase}Config: GeneratorConfig = {
   actions: [] as ActionType[],

@@ -3,6 +3,7 @@ import { ActionType, PromptQuestion } from 'node-plop'
 import { GeneratorConfig, getManyConstants } from '../../src'
 
 export const generatorConstants = getManyConstants({
+  directory: 'directory',
   name: 'name'
 } as const)
 
