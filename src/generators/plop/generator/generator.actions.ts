@@ -1,12 +1,12 @@
 import { pascalCase } from 'change-case'
 import { Answers } from 'inquirer'
 
-import { customGeneratorConstants } from './custom-generator.constants'
-import { GetCustomGeneratorActionsReturn } from './custom-generator.types'
+import { generatorConstants } from './generator.constants'
+import { GetGeneratorActionsReturn } from './generator.types'
 
-const { handlebars, base } = customGeneratorConstants
+const { handlebars, base } = generatorConstants
 
-export const getCustomGeneratorActions = (): GetCustomGeneratorActionsReturn => {
+export const getGeneratorActions = (): GetGeneratorActionsReturn => {
   return {
     actions: {
       path: `codegen/${handlebars.name.kebabCase}/${handlebars.name.kebabCase}.actions.ts`,
