@@ -1,22 +1,15 @@
 import * as requireInputModule from '../../validators/requireInput/requireInput'
 import * as requiredKebabCaseModule from '../../validators/requireKebabCase/requireKebabCase'
 import { composeValidators } from './composeValidators'
-import {
-  firstErrorMessage,
-  firstValidator,
-  promptValue,
-  secondErrorMessage,
-  secondValidator,
-  thirdValidator
-} from './composeValidators.test.utils'
+import { composeValidatorsTestUtils as t } from './composeValidators.test.utils'
 
 describe('composeValidators function', () => {
   test('should call all passed validators', () => {
-    composeValidators(firstValidator, secondValidator, thirdValidator)(promptValue)
+    composeValidators(t.firstValidator, t.secondValidator, t.thirdValidator)(t.promptValue)
 
-    expect(firstValidator).toHaveBeenCalledTimes(1)
-    expect(secondValidator).toHaveBeenCalledTimes(1)
-    expect(thirdValidator).toHaveBeenCalledTimes(1)
+    expect(t.firstValidator).toHaveBeenCalledTimes(1)
+    expect(t.secondValidator).toHaveBeenCalledTimes(1)
+    expect(t.thirdValidator).toHaveBeenCalledTimes(1)
   })
 
   test('should call default validators when called without arguments', () => {
@@ -29,7 +22,7 @@ describe('composeValidators function', () => {
       .spyOn(requiredKebabCaseModule, 'requireKebabCase')
       .mockImplementationOnce(() => requiredKebabCaseMock)
 
-    composeValidators()(promptValue)
+    composeValidators()(t.promptValue)
 
     expect(requireInputMock).toHaveBeenCalledTimes(1)
     expect(requiredKebabCaseMock).toHaveBeenCalledTimes(1)
@@ -39,21 +32,21 @@ describe('composeValidators function', () => {
   })
 
   test('should return first error message when validation fails more than once', () => {
-    firstValidator.mockImplementationOnce(() => null)
-    secondValidator.mockImplementationOnce(() => firstErrorMessage)
-    thirdValidator.mockImplementationOnce(() => secondErrorMessage)
+    t.firstValidator.mockImplementationOnce(() => null)
+    t.secondValidator.mockImplementationOnce(() => t.firstErrorMessage)
+    t.thirdValidator.mockImplementationOnce(() => t.secondErrorMessage)
 
-    const result = composeValidators(firstValidator, secondValidator, thirdValidator)(promptValue)
+    const result = composeValidators(t.firstValidator, t.secondValidator, t.thirdValidator)(t.promptValue)
 
-    expect(result).toEqual(firstErrorMessage)
+    expect(result).toEqual(t.firstErrorMessage)
   })
 
   test('should return "true" when all validators pass', () => {
-    firstValidator.mockImplementationOnce(() => null)
-    secondValidator.mockImplementationOnce(() => null)
-    thirdValidator.mockImplementationOnce(() => null)
+    t.firstValidator.mockImplementationOnce(() => null)
+    t.secondValidator.mockImplementationOnce(() => null)
+    t.thirdValidator.mockImplementationOnce(() => null)
 
-    const result = composeValidators(firstValidator, secondValidator, thirdValidator)(promptValue)
+    const result = composeValidators(t.firstValidator, t.secondValidator, t.thirdValidator)(t.promptValue)
 
     expect(result).toEqual(true)
   })

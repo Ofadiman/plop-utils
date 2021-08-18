@@ -1,8 +1,17 @@
-export const promptValue = 'promptValue'
+const promptValue = 'promptValue'
 
-export const firstErrorMessage = 'firstErrorMessage'
-export const secondErrorMessage = 'secondErrorMessage'
+const firstErrorMessage = 'firstErrorMessage'
+const secondErrorMessage = 'secondErrorMessage'
 
-export const firstValidator = jest.fn().mockName('firstValidator')
-export const secondValidator = jest.fn().mockName('secondValidator')
-export const thirdValidator = jest.fn().mockName('thirdValidator')
+const firstValidator = jest.fn().mockName('firstValidator')
+const secondValidator = jest.fn().mockName('secondValidator')
+const thirdValidator = jest.fn().mockName('thirdValidator')
+
+export const composeValidatorsTestUtils = {
+  firstErrorMessage,
+  firstValidator,
+  promptValue,
+  secondErrorMessage,
+  secondValidator,
+  thirdValidator
+}

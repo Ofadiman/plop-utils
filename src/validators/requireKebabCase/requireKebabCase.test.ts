@@ -1,10 +1,10 @@
 import { requireKebabCase } from './requireKebabCase'
-import { errorMessage, testCases } from './requireKebabCase.test.utils'
+import { requireKebabCaseTestUtils as t } from './requireKebabCase.test.utils'
 
 describe('requireKebabCase function', () => {
-  testCases.forEach(({ string, expectedResult }) => {
+  t.testCases.forEach(({ string, expectedResult }) => {
     test(`should return ${String(expectedResult)} for ${string}`, () => {
-      const result = requireKebabCase(errorMessage)(string)
+      const result = requireKebabCase(t.errorMessage)(string)
 
       expect(result).toEqual(expectedResult)
     })

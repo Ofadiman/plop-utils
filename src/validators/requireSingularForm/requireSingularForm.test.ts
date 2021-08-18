@@ -1,10 +1,10 @@
 import { requireSingularForm } from './requireSingularForm'
-import { errorMessage, testCases } from './requireSingularForm.test.utils'
+import { requireSingularFormTestUtils as t } from './requireSingularForm.test.utils'
 
 describe('requireSingularForm function', () => {
-  testCases.forEach(({ expectedResult, string }) => {
+  t.testCases.forEach(({ expectedResult, string }) => {
     test(`should return ${String(expectedResult)} for ${string}`, () => {
-      const result = requireSingularForm(errorMessage)(string)
+      const result = requireSingularForm(t.errorMessage)(string)
 
       expect(result).toEqual(expectedResult)
     })

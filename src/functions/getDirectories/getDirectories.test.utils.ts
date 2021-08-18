@@ -1,19 +1,31 @@
 import fs, { Dirent } from 'fs'
 
-export const cwdSpy = jest.spyOn(process, 'cwd').mockName('cwdSpy')
-export const readdirSyncSpy = jest.spyOn(fs, 'readdirSync').mockName('readdirSyncSpy')
+const cwdSpy = jest.spyOn(process, 'cwd').mockName('cwdSpy')
+const readdirSyncSpy = jest.spyOn(fs, 'readdirSync').mockName('readdirSyncSpy')
 
-export const cwd = '/home/user'
-export const srcDirName = 'src'
-export const additionalDirectories = ['pages', 'containers']
-export const additionalDirectoriesWithDuplicates = ['pages', 'pages', 'pages', 'pages']
+const cwd = '/home/user'
+const srcDirName = 'src'
+const additionalDirectories = ['pages', 'containers']
+const additionalDirectoriesWithDuplicates = ['pages', 'pages', 'pages', 'pages']
 
-export const cannotReadDirectoryError = new Error('cannotReadDirectoryError')
+const cannotReadDirectoryError = new Error('cannotReadDirectoryError')
 
-export const componentsDirectory = new Dirent()
+const componentsDirectory = new Dirent()
 componentsDirectory.name = 'components'
 componentsDirectory.isDirectory = () => true
 
-export const typeScriptFile = new Dirent()
+const typeScriptFile = new Dirent()
 typeScriptFile.name = 'Header.ts'
 typeScriptFile.isDirectory = () => false
+
+export const getDirectoriesTestUtils = {
+  additionalDirectories,
+  additionalDirectoriesWithDuplicates,
+  cannotReadDirectoryError,
+  componentsDirectory,
+  cwd,
+  cwdSpy,
+  readdirSyncSpy,
+  srcDirName,
+  typeScriptFile
+}

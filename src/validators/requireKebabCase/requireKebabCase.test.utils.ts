@@ -1,6 +1,6 @@
-export const errorMessage = 'invalid input'
+const errorMessage = 'invalid input'
 
-export const testCases = [
+const testCases = [
   { expectedResult: null, string: 'valid' },
   { expectedResult: null, string: 'valid-kebab' },
   { expectedResult: null, string: 'valid-very-long-kebab-case-string' },
@@ -12,3 +12,8 @@ export const testCases = [
   { expectedResult: errorMessage, string: 'invalid-end-hyphen-' },
   { expectedResult: errorMessage, string: 'snake_case_string' }
 ]
+
+export const requireKebabCaseTestUtils = {
+  errorMessage,
+  testCases
+}

@@ -1,10 +1,10 @@
 import { getOneConstant } from '../getOneConstant/getOneConstant'
 
-export const testBase = {
+const testBase = {
   name: 'name'
 } as const
 
-export const defaultResult = {
+const defaultResult = {
   base: testBase,
   handlebars: {
     name: {
@@ -25,11 +25,11 @@ export const defaultResult = {
   }
 }
 
-export const additionalConstants = {
+const additionalConstants = {
   name: { superCase: getOneConstant('test', 'pascalCase', 'sentenceCase') }
 }
 
-export const additionalConstantsResult = {
+const additionalConstantsResult = {
   base: testBase,
   handlebars: {
     name: {
@@ -49,4 +49,11 @@ export const additionalConstantsResult = {
       unmodified: '{{ name }}'
     }
   }
+}
+
+export const getManyConstantsTestUtils = {
+  additionalConstants,
+  additionalConstantsResult,
+  defaultResult,
+  testBase
 }

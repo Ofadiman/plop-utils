@@ -1,16 +1,16 @@
 import { getManyConstants } from './getManyConstants'
-import { additionalConstants, additionalConstantsResult, defaultResult, testBase } from './getManyConstants.test.utils'
+import { getManyConstantsTestUtils as t } from './getManyConstants.test.utils'
 
 describe('getManyConstants function', () => {
   test('get default constants', () => {
-    const result = getManyConstants(testBase)
+    const result = getManyConstants(t.testBase)
 
-    expect(result).toEqual(defaultResult)
+    expect(result).toEqual(t.defaultResult)
   })
 
   test('get constants with custom properties', () => {
-    const result = getManyConstants(testBase, additionalConstants)
+    const result = getManyConstants(t.testBase, t.additionalConstants)
 
-    expect(result).toEqual(additionalConstantsResult)
+    expect(result).toEqual(t.additionalConstantsResult)
   })
 })

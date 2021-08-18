@@ -1,8 +1,8 @@
 import { getOneConstant } from './getOneConstant'
-import { testCases } from './getOneConstant.test.utils'
+import { getOneConstantTestUtils as t } from './getOneConstant.test.utils'
 
 describe('getOneConstant function', () => {
-  testCases.forEach(({ expectedResult, helpers, variable, title }) => {
+  t.testCases.forEach(({ expectedResult, helpers, variable, title }) => {
     test(title, () => {
       const result = getOneConstant(variable, ...helpers)
 

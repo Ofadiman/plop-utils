@@ -1,15 +1,15 @@
 import getPlop from 'node-plop'
 
-import * as generatorModule from '../../generators/plop/generator/generator.setup'
-
-export const setupGeneratorSpy = jest.spyOn(generatorModule, 'setupGeneratorCodegen')
-
-export const setGeneratorMock = jest.fn().mockName('setGeneratorMock')
-export const setWelcomeMessageMock = jest.fn().mockName('setWelcomeMessageMock')
-export const setHelperMock = jest.fn().mockName('setHelperMock')
-export const plop = {
+const setWelcomeMessageMock = jest.fn().mockName('setWelcomeMessageMock')
+const setHelperMock = jest.fn().mockName('setHelperMock')
+const plop = {
   ...getPlop(''),
-  setGenerator: setGeneratorMock,
   setHelper: setHelperMock,
   setWelcomeMessage: setWelcomeMessageMock
+}
+
+export const setupPlopTestUtils = {
+  plop,
+  setHelperMock,
+  setWelcomeMessageMock
 }

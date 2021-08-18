@@ -15,3 +15,5 @@ export const testCases = [
     variable: 'name'
   }
 ]
+
+export const getOneConstantTestUtils = { testCases }

@@ -1,36 +1,24 @@
 import { plural, singular } from 'pluralize'
 
 import { setupPlop } from './setupPlop'
-import { plop, setGeneratorMock, setHelperMock, setupGeneratorSpy, setWelcomeMessageMock } from './setupPlop.test.utils'
+import { setupPlopTestUtils as t } from './setupPlop.test.utils'
 
 describe('setupPlop function', () => {
   afterEach(() => {
-    setGeneratorMock.mockReset()
-    setHelperMock.mockReset()
-    setWelcomeMessageMock.mockReset()
-    setupGeneratorSpy.mockReset()
+    t.setHelperMock.mockReset()
+    t.setWelcomeMessageMock.mockReset()
   })
 
   afterAll(() => {
-    setGeneratorMock.mockRestore()
-    setHelperMock.mockRestore()
-    setWelcomeMessageMock.mockRestore()
-    setupGeneratorSpy.mockRestore()
+    t.setHelperMock.mockRestore()
+    t.setWelcomeMessageMock.mockRestore()
   })
 
-  test('default plop setup', () => {
-    setupPlop(plop)
+  test('should setup plop', () => {
+    setupPlop(t.plop)
 
-    expect(setHelperMock).toHaveBeenCalledWith('plural', plural)
-    expect(setHelperMock).toHaveBeenCalledWith('singular', singular)
-    expect(setWelcomeMessageMock).toHaveBeenCalledTimes(1)
-  })
-
-  test('plop setup with custom options', () => {
-    setupPlop(plop, { plop: { generator: true } })
-
-    expect(setHelperMock).toHaveBeenCalledWith('plural', plural)
-    expect(setHelperMock).toHaveBeenCalledWith('singular', singular)
-    expect(setupGeneratorSpy).toHaveBeenCalledTimes(1)
+    expect(t.setHelperMock).toHaveBeenCalledWith('plural', plural)
+    expect(t.setHelperMock).toHaveBeenCalledWith('singular', singular)
+    expect(t.setWelcomeMessageMock).toHaveBeenCalledTimes(1)
   })
 })

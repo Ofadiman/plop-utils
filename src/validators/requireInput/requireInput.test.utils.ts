@@ -1,6 +1,11 @@
-export const errorMessage = 'invalid input'
+const errorMessage = 'invalid input'
 
-export const testCases = [
+const testCases = [
   { expectedResult: null, string: 'valid string' },
   { expectedResult: errorMessage, string: '' }
 ]
+
+export const requireInputTestUtils = {
+  errorMessage,
+  testCases
+}
